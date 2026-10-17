@@ -1,0 +1,510 @@
+
+:root {
+  --navy: #071629;
+  --navy-light: #102743;
+  --gold: #c9a45c;
+  --cream: #f7f2e8;
+  --white: #fffdf8;
+  --text: #17202b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 7%;
+  background: rgba(7, 22, 41, 0.98);
+  border-bottom: 1px solid rgba(201, 164, 92, 0.35);
+}
+
+.logo, .footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.crown {
+  display: block;
+  text-align: center;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar nav a {
+  color: var(--white);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  color: var(--gold);
+  background: transparent;
+  border: 0;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 620px;
+  padding: 80px 8%;
+  background:
+    radial-gradient(ellipse at 75% 50%, #19314a 0%, transparent 48%),
+    linear-gradient(120deg, #030a13, var(--navy) 65%, #172941);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 35px;
+  overflow: hidden;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 17px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(55px, 7vw, 100px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: 2px;
+}
+
+.hero h1 span,
+.section-heading h2 span,
+.story-content h2 span,
+.contact-section h2 span {
+  color: var(--gold);
+}
+
+.product-name {
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+.gold-line {
+  width: 65px;
+  height: 2px;
+  background: var(--gold);
+  margin: 28px 0;
+}
+
+.hero h2 {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--gold);
+  font-size: 34px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.hero-description {
+  margin: 12px 0 30px;
+  color: #d1d6de;
+  max-width: 420px;
+  font-size: 13px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 25px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.hero-visual {
+  min-height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-visual img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  max-height: 470px;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 35px #0009);
+}
+
+.image-placeholder {
+  display: none;
+  width: min(100%, 340px);
+  min-height: 330px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 35px;
+  color: var(--gold);
+  background: linear-gradient(145deg, #132a44, #040b15);
+  border: 1px solid #a88443;
+  box-shadow: 0 20px 50px #0007;
+}
+
+.image-placeholder span {
+  font-size: 60px;
+}
+
+.image-placeholder strong {
+  font: 38px 'Cormorant Garamond', serif;
+  letter-spacing: 3px;
+}
+
+.image-placeholder p {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.image-placeholder small {
+  margin-top: 45px;
+  color: #b9bdc4;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.product-section {
+  padding: 85px 8%;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.section-heading h2,
+.story-content h2,
+.contact-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 57px);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.section-heading > p:last-child,
+.contact-section > p:not(.eyebrow) {
+  max-width: 600px;
+  margin: 18px auto 0;
+  font-size: 13px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.feature {
+  padding: 35px 24px;
+  text-align: center;
+  border: 1px solid #d9c9a8;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px #07162912;
+}
+
+.feature-icon {
+  display: block;
+  color: #a77c32;
+  font-size: 35px;
+  margin-bottom: 14px;
+}
+
+.feature h3 {
+  font: 600 23px 'Cormorant Garamond', serif;
+  margin-bottom: 12px;
+}
+
+.feature p {
+  color: #555;
+  font-size: 12px;
+}
+
+.product-cta {
+  margin-top: 65px;
+  padding: 55px 20px;
+  text-align: center;
+  color: var(--white);
+  background: var(--navy);
+}
+
+.product-cta h2 {
+  font: 500 42px 'Cormorant Garamond', serif;
+}
+
+.product-cta > p:not(.eyebrow) {
+  margin: 12px 0 25px;
+  font-size: 13px;
+  color: #d6dbe3;
+}
+
+.btn-dark {
+  margin-top: 5px;
+}
+
+.story-section {
+  padding: 85px 12%;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 60px;
+  align-items: center;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.story-mark {
+  display: grid;
+  place-items: center;
+  min-height: 300px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 125px;
+  background: radial-gradient(circle, #19324c, #071629 70%);
+}
+
+.story-content > p:not(.eyebrow) {
+  margin-top: 20px;
+  color: #d0d5dd;
+  font-size: 13px;
+}
+
+.signature {
+  font: italic 32px 'Cormorant Garamond', serif;
+  color: var(--gold) !important;
+}
+
+.signature small {
+  display: block;
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 3px;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 85px 20px;
+}
+
+.contact-links {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  color: var(--navy);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  color: var(--navy);
+  background: var(--gold);
+}
+
+footer {
+  padding: 35px 7%;
+  background: #030a13;
+  color: var(--white);
+  text-align: center;
+  border-top: 1px solid #9d7c40;
+}
+
+.footer-logo {
+  font-size: 25px;
+}
+
+footer p {
+  margin: 8px 0;
+  font: italic 20px 'Cormorant Garamond', serif;
+  color: var(--gold);
+}
+
+footer small {
+  display: block;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #b9c0cb;
+}
+
+footer .copyright {
+  margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    padding: 14px 5%;
+  }
+
+  .logo {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 5% 20px;
+    background: var(--navy);
+  }
+
+  .navbar nav.open {
+    display: flex;
+  }
+
+  .navbar nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid #ffffff15;
+  }
+
+  .hero {
+    padding: 65px 7% 45px;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 14vw, 78px);
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gold-line {
+    margin: 23px auto;
+  }
+
+  .hero-visual {
+    min-height: 270px;
+  }
+
+  .hero-visual img {
+    max-height: 330px;
+  }
+
+  .image-placeholder {
+    min-height: 260px;
+  }
+
+  .product-section {
+    padding: 65px 6%;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    padding: 28px 22px;
+  }
+
+  .product-cta {
+    margin-top: 40px;
+    padding: 40px 18px;
+  }
+
+  .product-cta h2 {
+    font-size: 35px;
+  }
+
+  .story-section {
+    padding: 60px 7%;
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .story-mark {
+    min-height: 190px;
+    font-size: 95px;
+  }
+
+  .contact-section {
+    padding: 65px 7%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
