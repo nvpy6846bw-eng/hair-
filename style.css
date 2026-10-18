@@ -1,13 +1,7 @@
 
-/* =========================================
-   OTTO LUKE — SIGNATURE POMADE
-   Luxury Dark Theme | Cream | Midnight | Gold
-========================================= */
-
 :root {
   --black: #050608;
   --navy: #090d14;
-  --navy-light: #111722;
   --gold: #b99a5b;
   --gold-light: #dfc58e;
   --cream: #eee7d9;
@@ -45,22 +39,18 @@ button {
   font: inherit;
 }
 
-/* =========================================
-   NAVIGATION
-========================================= */
+/* NAVIGATION */
 
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  width: 100%;
   min-height: 100px;
   padding: 18px 7%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-
   background: rgba(5, 6, 8, 0.96);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(18px);
@@ -72,8 +62,6 @@ button {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
   color: var(--gold);
   font-family: 'Cormorant Garamond', serif;
   font-size: 31px;
@@ -92,7 +80,7 @@ button {
 .navbar nav {
   display: flex;
   align-items: center;
-  gap: clamp(18px, 3vw, 42px);
+  gap: clamp(18px, 2.5vw, 36px);
 }
 
 .navbar nav a {
@@ -100,9 +88,13 @@ button {
   color: #bcb8b0;
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 1.7px;
   text-transform: uppercase;
   transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: var(--gold-light);
 }
 
 .navbar nav a::after {
@@ -114,10 +106,6 @@ button {
   height: 1px;
   background: var(--gold);
   transition: width 0.3s ease;
-}
-
-.navbar nav a:hover {
-  color: var(--gold-light);
 }
 
 .navbar nav a:hover::after {
@@ -134,48 +122,37 @@ button {
   cursor: pointer;
 }
 
-/* =========================================
-   HERO SECTION
-   Full-background product image with text overlay
-========================================= */
+/* HERO */
 
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 760px;
   min-height: min(850px, calc(100svh - 100px));
   padding: 100px 7%;
-
   display: flex;
   align-items: center;
   overflow: hidden;
-
   background: var(--black);
   color: var(--white);
 }
 
-/* Product image fills the entire hero */
 .hero-background {
   position: absolute;
   inset: 0;
   z-index: -2;
-
   background-image: url("product-hero.png");
   background-size: cover;
   background-position: 65% center;
   background-repeat: no-repeat;
-
   transform: scale(1.015);
 }
 
-/* Blends the product photo with the text area */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-
   background:
     linear-gradient(
       90deg,
@@ -195,14 +172,12 @@ button {
     );
 }
 
-/* Additional subtle gold ambience */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-
   background: radial-gradient(
     ellipse at 78% 50%,
     rgba(185, 154, 91, 0.09),
@@ -239,7 +214,7 @@ button {
   color: var(--gold);
 }
 
-.hero .product-name {
+.product-name {
   margin-top: 29px;
   color: #d0c3a7;
   font-size: 11px;
@@ -251,11 +226,7 @@ button {
   width: 65px;
   height: 1px;
   margin: 30px 0;
-  background: linear-gradient(
-    90deg,
-    var(--gold),
-    rgba(185, 154, 91, 0.15)
-  );
+  background: linear-gradient(90deg, var(--gold), transparent);
 }
 
 .hero h2 {
@@ -267,69 +238,15 @@ button {
   line-height: 1.2;
 }
 
-.hero .hero-description {
+.hero-description {
   max-width: 420px;
   margin: 20px 0 34px;
   color: #c2c0bc;
   font-size: 12px;
   font-weight: 300;
   line-height: 2;
-  letter-spacing: 0.2px;
 }
 
-/* =========================================
-   BUTTONS
-========================================= */
-
-.btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  padding: 15px 29px;
-
-  border: 1px solid var(--gold);
-  background: var(--gold);
-  color: #090a0c;
-
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-align: center;
-  text-transform: uppercase;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.btn:hover {
-  background: transparent;
-  color: var(--gold-light);
-  border-color: var(--gold-light);
-  transform: translateY(-2px);
-}
-
-.btn-dark {
-  background: var(--gold);
-  color: #090a0c;
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--gold-light);
-  border-color: var(--gold);
-}
-
-.btn-outline:hover {
-  background: var(--gold);
-  color: #090a0c;
-}
-
-/* Small scroll cue */
 .hero-note {
   margin-top: 42px;
   color: #88847a;
@@ -337,19 +254,68 @@ button {
   letter-spacing: 3px;
 }
 
-/* =========================================
-   PRODUCT SECTION
-========================================= */
+.scroll-indicator {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  width: 22px;
+  height: 36px;
+  border: 1px solid rgba(223, 197, 142, 0.5);
+  border-radius: 20px;
+  transform: translateX(-50%);
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 3px;
+  height: 7px;
+  margin: 7px auto;
+  background: var(--gold-light);
+  border-radius: 4px;
+  animation: scrollDown 1.5s infinite;
+}
+
+/* BUTTONS */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 15px 29px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #090a0c;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold-light);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: #090a0c;
+}
+
+/* PRODUCT SECTION */
 
 .product-section {
-  position: relative;
   padding: 110px 8%;
   background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(35, 36, 37, 0.35),
-      transparent 55%
-    ),
+    radial-gradient(ellipse at 50% 0%, rgba(35, 36, 37, 0.35), transparent 55%),
     #090b0f;
 }
 
@@ -392,24 +358,14 @@ button {
 .feature {
   padding: 43px 27px;
   text-align: center;
-
-  background: linear-gradient(
-    145deg,
-    rgba(22, 25, 31, 0.75),
-    rgba(9, 11, 15, 0.9)
-  );
-
+  background: linear-gradient(145deg, rgba(22, 25, 31, 0.75), rgba(9, 11, 15, 0.9));
   border: 1px solid rgba(185, 154, 91, 0.16);
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    background 0.35s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease;
 }
 
 .feature:hover {
   transform: translateY(-6px);
   border-color: rgba(185, 154, 91, 0.55);
-  background: #11141a;
 }
 
 .feature-icon {
@@ -433,30 +389,12 @@ button {
   line-height: 2;
 }
 
-/* =========================================
-   PRODUCT CTA
-========================================= */
-
 .product-cta {
-  position: relative;
   margin-top: 75px;
   padding: 75px 25px;
-  overflow: hidden;
   text-align: center;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(35, 32, 25, 0.48),
-      transparent 72%
-    ),
-    #07090d;
-
+  background: radial-gradient(ellipse at center, rgba(35, 32, 25, 0.48), transparent 72%), #07090d;
   border: 1px solid rgba(185, 154, 91, 0.2);
-}
-
-.product-cta .eyebrow {
-  margin-bottom: 20px;
 }
 
 .product-cta h2 {
@@ -473,16 +411,13 @@ button {
   font-size: 12px;
 }
 
-/* =========================================
-   BRAND STORY
-========================================= */
+/* PHILOSOPHY */
 
 .story-section {
   display: grid;
   grid-template-columns: 0.75fr 1.25fr;
   align-items: center;
   gap: 75px;
-
   padding: 110px 12%;
   background: #050608;
   border-top: 1px solid rgba(185, 154, 91, 0.13);
@@ -492,18 +427,9 @@ button {
   display: grid;
   place-items: center;
   min-height: 320px;
-
   color: var(--gold);
   font-size: 120px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(185, 154, 91, 0.09),
-      transparent 68%
-    ),
-    #080a0e;
-
+  background: radial-gradient(circle, rgba(185, 154, 91, 0.09), transparent 68%), #080a0e;
   border: 1px solid rgba(185, 154, 91, 0.27);
 }
 
@@ -536,22 +462,185 @@ button {
   letter-spacing: 3px;
 }
 
-/* =========================================
-   CONTACT SECTION
-========================================= */
+/* CUSTOMER REVIEWS */
+
+.reviews-section {
+  padding: 105px 8%;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(185, 154, 91, 0.08), transparent 55%),
+    #07090d;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.reviews-heading {
+  max-width: 700px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.reviews-heading h2 {
+  color: var(--white);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 5.5vw, 65px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.reviews-heading h2 span {
+  color: var(--gold);
+}
+
+.reviews-intro {
+  max-width: 540px;
+  margin: 20px auto 0;
+  color: #9c9a96;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.reviews-empty {
+  grid-column: 1 / -1;
+  padding: 45px 25px;
+  text-align: center;
+  background: rgba(14, 17, 22, 0.58);
+  border: 1px dashed rgba(185, 154, 91, 0.28);
+}
+
+.reviews-symbol {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: 27px;
+}
+
+.reviews-empty h3 {
+  color: #e9dfcc;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.reviews-empty p {
+  max-width: 420px;
+  margin: 10px auto 0;
+  color: #96938c;
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+/* Style for each manually added review */
+
+.review-card {
+  padding: 30px 27px;
+  background: linear-gradient(145deg, rgba(21, 24, 30, 0.9), rgba(9, 11, 15, 0.96));
+  border: 1px solid rgba(185, 154, 91, 0.2);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.review-card:hover {
+  border-color: rgba(185, 154, 91, 0.55);
+  transform: translateY(-4px);
+}
+
+.review-stars {
+  color: #c7a563;
+  font-size: 15px;
+  letter-spacing: 4px;
+}
+
+.review-text {
+  margin-top: 20px;
+  color: #d0ccc4;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  line-height: 1.65;
+}
+
+.review-divider {
+  width: 42px;
+  height: 1px;
+  margin: 23px 0 16px;
+  background: var(--gold);
+}
+
+.review-author {
+  color: #f1e9da;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.review-label {
+  display: block;
+  margin-top: 5px;
+  color: #85827b;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.review-invitation {
+  max-width: 720px;
+  margin: 65px auto 0;
+  padding: 48px 25px;
+  text-align: center;
+  background: radial-gradient(ellipse at center, rgba(185, 154, 91, 0.09), transparent 75%);
+}
+
+.review-invitation-line {
+  width: 55px;
+  height: 1px;
+  margin: 0 auto 28px;
+  background: var(--gold);
+}
+
+.review-invitation .eyebrow {
+  margin-bottom: 15px;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.review-invitation h3 {
+  color: #f3ecdf;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 45px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.review-invitation > p:not(.eyebrow) {
+  max-width: 500px;
+  margin: 16px auto 25px;
+  color: #a6a29a;
+  font-size: 11px;
+  line-height: 2;
+}
+
+.review-note {
+  display: block;
+  margin-top: 22px;
+  color: #77756f;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* CONTACT */
 
 .contact-section {
   padding: 100px 7%;
   text-align: center;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 100%,
-      rgba(185, 154, 91, 0.07),
-      transparent 65%
-    ),
-    #0b0d12;
-
+  background: radial-gradient(ellipse at 50% 100%, rgba(185, 154, 91, 0.07), transparent 65%), #0b0d12;
   border-top: 1px solid rgba(185, 154, 91, 0.15);
 }
 
@@ -575,9 +664,7 @@ button {
   margin-top: 34px;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* FOOTER */
 
 footer {
   padding: 45px 7% 30px;
@@ -603,32 +690,26 @@ footer > small {
   margin-top: 12px;
   color: #77777c;
   font-size: 10px;
-  letter-spacing: 0.5px;
 }
 
 footer .copyright {
   margin-top: 24px;
 }
 
-/* =========================================
-   ANIMATIONS
-========================================= */
+/* ANIMATIONS */
 
 @keyframes heroReveal {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* =========================================
-   RESPONSIVE TABLET & MOBILE
-========================================= */
+@keyframes scrollDown {
+  0% { opacity: 0; transform: translateY(0); }
+  40% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* TABLET */
 
 @media (max-width: 900px) {
   .navbar {
@@ -637,17 +718,12 @@ footer .copyright {
   }
 
   .navbar nav {
-    gap: 18px;
+    gap: 16px;
   }
 
   .navbar nav a {
     font-size: 9px;
-    letter-spacing: 1.3px;
-  }
-
-  .hero {
-    padding-left: 6%;
-    padding-right: 6%;
+    letter-spacing: 1px;
   }
 
   .hero-content {
@@ -662,7 +738,14 @@ footer .copyright {
     padding: 85px 7%;
     gap: 40px;
   }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
 }
+
+/* MOBILE */
 
 @media (max-width: 650px) {
   .navbar {
@@ -684,11 +767,9 @@ footer .copyright {
     top: 100%;
     left: 0;
     right: 0;
-
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-
     padding: 12px 6% 20px;
     background: rgba(5, 6, 8, 0.99);
     border-bottom: 1px solid var(--border);
@@ -710,10 +791,8 @@ footer .copyright {
   }
 
   .hero {
-    min-height: 750px;
     min-height: min(820px, calc(100svh - 82px));
     padding: 85px 7% 65px;
-    align-items: center;
   }
 
   .hero-background {
@@ -723,32 +802,17 @@ footer .copyright {
 
   .hero::before {
     background:
-      linear-gradient(
-        90deg,
-        rgba(5, 6, 8, 0.93) 0%,
-        rgba(5, 6, 8, 0.79) 48%,
-        rgba(5, 6, 8, 0.35) 100%
-      ),
-      linear-gradient(
-        0deg,
-        rgba(5, 6, 8, 0.88) 0%,
-        transparent 50%,
-        rgba(5, 6, 8, 0.2) 100%
-      );
+      linear-gradient(90deg, rgba(5, 6, 8, 0.93) 0%, rgba(5, 6, 8, 0.79) 48%, rgba(5, 6, 8, 0.35) 100%),
+      linear-gradient(0deg, rgba(5, 6, 8, 0.88) 0%, transparent 50%, rgba(5, 6, 8, 0.2) 100%);
   }
 
   .hero::after {
-    background: radial-gradient(
-      ellipse at 75% 45%,
-      rgba(185, 154, 91, 0.09),
-      transparent 55%
-    );
+    background: radial-gradient(ellipse at 75% 45%, rgba(185, 154, 91, 0.09), transparent 55%);
   }
 
   .hero-content {
     width: 100%;
     max-width: 430px;
-    margin-top: 0;
   }
 
   .hero .eyebrow {
@@ -761,13 +825,13 @@ footer .copyright {
     font-size: clamp(68px, 16vw, 100px);
   }
 
-  .hero .product-name {
+  .product-name {
     margin-top: 24px;
     font-size: 10px;
     letter-spacing: 3px;
   }
 
-  .hero .gold-line {
+  .gold-line {
     margin: 26px 0;
   }
 
@@ -775,7 +839,7 @@ footer .copyright {
     font-size: clamp(31px, 8vw, 39px);
   }
 
-  .hero .hero-description {
+  .hero-description {
     max-width: 310px;
     font-size: 11px;
     line-height: 1.9;
@@ -783,7 +847,6 @@ footer .copyright {
 
   .hero-note {
     margin-top: 32px;
-    font-size: 8px;
   }
 
   .product-section {
@@ -831,6 +894,31 @@ footer .copyright {
     font-size: 43px;
   }
 
+  .reviews-section {
+    padding: 70px 6%;
+  }
+
+  .reviews-heading {
+    margin-bottom: 38px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    padding: 27px 23px;
+  }
+
+  .review-invitation {
+    margin-top: 35px;
+    padding: 40px 8px;
+  }
+
+  .reviews-empty {
+    padding: 35px 20px;
+  }
+
   .contact-section {
     padding: 75px 7%;
   }
@@ -839,16 +927,13 @@ footer .copyright {
     flex-direction: column;
     align-items: stretch;
     max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 34px auto 0;
   }
 
   .contact-links .btn {
     width: 100%;
   }
 }
-
-/* SMALL PHONES */
 
 @media (max-width: 380px) {
   .hero {
